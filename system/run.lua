@@ -17,6 +17,8 @@ function drawGUI()
             draw.reboot("reboot", 44, 3, x, y)
             draw.setBackClr("set backgound color: " .. m.getBackgroundColor(), 13, 7, x, y)
 
+            -- To implement: only on first boot run init(), add to bin/apis/vars.lua and it will contain all impportant vars. eg.: wasFirstBoot, background_color: 
+            -- and use background_color in every printText() method
             draw.setColor("White", 31, 8, x, y, 1)
             draw.setColor("Orange", 31, 9, x, y, 2)
             draw.setColor("Magenta", 31, 10, x, y, 4)
