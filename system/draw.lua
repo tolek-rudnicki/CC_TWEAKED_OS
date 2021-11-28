@@ -1,3 +1,4 @@
+local dropped = false
 local droppedDown = false
 m = peripheral.find("monitor")
 sizeX, sizeY = m.getSize()
@@ -47,29 +48,29 @@ function settings(tag, xpos, ypos, x, y)
 end
 
 function setBackClr(tag, xpos, ypos, x, y)
-    dropped = false
     lenght = string.len(tag)
     if xpos == nil or ypos == nil then
     else
         if x > xpos and x < lenght + xpos and y == ypos then
             if dropped == false then
-                printText("White", 31, 8, true, 1, 32768, false)
-                printText("Orange", 31, 9, true, 1, 32768, false)
-                printText("Magenta", 31, 10, true, 1, 32768, false)
-                printText("Light Blue", 31, 11, true, 1, 32768, false)
-                printText("Yellow", 31, 12, true, 1, 32768, false)
-                printText("Lime", 31, 13, true, 1, 32768, false)
-                printText("Pink", 31, 14, true, 1, 32768, false)
-                printText("Gray", 31, 15, true, 1, 32768, false)
-                printText("Light Gray", 31, 16, true, 1, 32768, false)
-                printText("Cyan", 31, 17, true, 1, 32768, false)
-                printText("Purple", 31, 18, true, 1, 32768, false)
-                printText("Blue", 31, 19, true, 1, 32768, false)
-                printText("Brown", 31, 20, true, 1, 32768, false)
-                printText("Green", 31, 21, true, 1, 32768, false)
-                printText("Red", 31, 22, true, 1, 32768, false)
+                printText("White", 31, 8, true, 32768, 1, false)
+                printText("Orange", 31, 9, true, 1, 2, false)
+                printText("Magenta", 31, 10, true, 1, 4, false)
+                printText("Light Blue", 31, 11, true, 1, 8, false)
+                printText("Yellow", 31, 12, true, 1, 16, false)
+                printText("Lime", 31, 13, true, 1, 32, false)
+                printText("Pink", 31, 14, true, 1, 64, false)
+                printText("Gray", 31, 15, true, 1, 128, false)
+                printText("Light Gray", 31, 16, true, 1, 256, false)
+                printText("Cyan", 31, 17, true, 1, 512, false)
+                printText("Purple", 31, 18, true, 1, 1024, false)
+                printText("Blue", 31, 19, true, 1, 2048, false)
+                printText("Brown", 31, 20, true, 1, 4096, false)
+                printText("Green", 31, 21, true, 1, 8192, false)
+                printText("Red", 31, 22, true, 1, 16384, false)
                 printText("Black", 31, 23, true, 1, 32768, false)
                 dropped = true
+                --print(dropped)
             else
                 printText("     ", 31, 8, true, 1, 32768, false)
                 printText("      ", 31, 9, true, 1, 32768, false)
@@ -88,7 +89,19 @@ function setBackClr(tag, xpos, ypos, x, y)
                 printText("   ", 31, 22, true, 1, 32768, false)
                 printText("     ", 31, 23, true, 1, 32768, false)
                 dropped = false
+                --print(dropped)
             end
+        end
+    end
+end
+
+function setColor(tag, xpos, ypos, x, y, clr)
+    lenght = string.len(tag)
+    if xpos == nil or ypos == nil then
+    else
+        if x > xpos and x < xpos + lenght and y == ypos then
+            m.setBackgroundColor(clr)
+            initWithoutFlash()
         end
     end
 end
