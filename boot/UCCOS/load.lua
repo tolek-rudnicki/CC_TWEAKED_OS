@@ -1,5 +1,3 @@
-print("=================================")
-print("                                 ")
 --print("Loading /bin/libs/apt.lua        ")
 --print("Loading /bin/libs/apt-core.lua   ")
 

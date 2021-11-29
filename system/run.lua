@@ -1,25 +1,21 @@
-os.loadAPI("system/draw.lua")
+os.loadAPI("bin/apis/draw.lua")
 m = peripheral.find("monitor")
 sizeX, sizeY = m.getSize()
 
 function drawGUI()
     m.clear()
-    print(m.getSize())
     draw.init()
     while (true) do
         event, side, x, y = os.pullEvent("monitor_touch")
         if event == "monitor_touch" then
             -- button events
             draw.settings("settings", 11, 1, x, y)
-            draw.close(" x", 21, 5, x, y)
+            draw.closeSettings(" x", 21, 5, x, y)
             draw.list("list ", 46, 1, x, y)
             draw.shutdown("shutdown", 42, 2, x, y)
             draw.reboot("reboot", 44, 3, x, y)
             draw.setBackClr("set backgound color: " .. m.getBackgroundColor(), 13, 7, x, y)
 
-            -- To implement: only on first boot run init(), add to bin/apis/vars.lua and it will contain all impportant vars. eg.: wasFirstBoot, background_color: 
-            -- and use background_color in every printText() method other than the top bar
-            -- Fix bug: you can click on any button even if the menu wich it is in is not loaded
             draw.setColor("White", 31, 8, x, y, 1)
             draw.setColor("Orange", 31, 9, x, y, 2)
             draw.setColor("Magenta", 31, 10, x, y, 4)
