@@ -1,2 +1,2 @@
 term.clear()
-shell.run("boot/UCCOS/load.lua")
+shell.run("boot/NUCCOS/load.lua")

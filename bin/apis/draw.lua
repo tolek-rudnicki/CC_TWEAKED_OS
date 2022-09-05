@@ -1,4 +1,5 @@
 local background = 32768
+local text = 1
 local rs_list = false
 local settings_open = false
 local dropped = false
@@ -41,11 +42,29 @@ function settings(tag, xpos, ypos, x, y)
     if xpos == nil or ypos == nil then
     else
         if x > xpos and x < lenght + xpos and y == ypos then 
-            printText("settings", 13, 5, true, 1, background                       , false)
-            printText("x", 22, 5, true, 1, 16384, false)
+            printText("settings", 13, 5, true, text, background                       , false)
+            printText("x", 40, 4, true, text, 16384, false)
             m.setBackgroundColor(32768)
-            printText("background color: " .. background                       , 13, 6, true, 1, background                       , false)
-            printText("set backgound color: " .. background                       , 13, 7, true, 1, background                       , false)
+            backcg = {
+                [1] = "White",
+                [2] = "Orange",
+                [4] = "Magenta",
+                [8] = "Light Blue",
+                [16] = "Yellow",
+                [32] = "Lime",
+                [64] = "Pink",
+                [128] = "Gray",
+                [256] = "Light Gray",
+                [512] = "Cyan",
+                [1024] = "Purple",
+                [2048] = "Blue",
+                [4096] = "Brown",
+                [8192] = "Green",
+                [16384] = "Red",
+                [32768] = "Black"
+            }
+            printText("background color: " .. backcg[background], 13, 6, true, text, background, false)
+            printText("set backgound color: " .. backcg[background], 13, 7, true, text, background, false)
             settings_open = true
         end
     end
@@ -60,20 +79,20 @@ function setBackClr(tag, xpos, ypos, x, y)
             if x > xpos and x < lenght + xpos and y == ypos then
                 if dropped == false then
                     printText("White", 31, 8, true, 32768, 1, false)
-                    printText("Orange", 31, 9, true, 1, 2, false)
-                    printText("Magenta", 31, 10, true, 1, 4, false)
-                    printText("Light Blue", 31, 11, true, 1, 8, false)
-                    printText("Yellow", 31, 12, true, 1, 16, false)
-                    printText("Lime", 31, 13, true, 1, 32, false)
-                    printText("Pink", 31, 14, true, 1, 64, false)
-                    printText("Gray", 31, 15, true, 1, 128, false)
-                    printText("Light Gray", 31, 16, true, 1, 256, false)
-                    printText("Cyan", 31, 17, true, 1, 512, false)
-                    printText("Purple", 31, 18, true, 1, 1024, false)
-                    printText("Blue", 31, 19, true, 1, 2048, false)
-                    printText("Brown", 31, 20, true, 1, 4096, false)
-                    printText("Green", 31, 21, true, 1, 8192, false)
-                    printText("Red", 31, 22, true, 1, 16384, false)
+                    printText("Orange", 31, 9, true, text, 2, false)
+                    printText("Magenta", 31, 10, true, text, 4, false)
+                    printText("Light Blue", 31, 11, true, text, 8, false)
+                    printText("Yellow", 31, 12, true, text, 16, false)
+                    printText("Lime", 31, 13, true, text, 32, false)
+                    printText("Pink", 31, 14, true, text, 64, false)
+                    printText("Gray", 31, 15, true, text, 128, false)
+                    printText("Light Gray", 31, 16, true, text, 256, false)
+                    printText("Cyan", 31, 17, true, text, 512, false)
+                    printText("Purple", 31, 18, true, text, 1024, false)
+                    printText("Blue", 31, 19, true, text, 2048, false)
+                    printText("Brown", 31, 20, true, text, 4096, false)
+                    printText("Green", 31, 21, true, text, 8192, false)
+                    printText("Red", 31, 22, true, text, 16384, false)
                     printText("Black", 31, 23, true, 1, 32768, false)
                     dropped = true
                     --print(dropped)
@@ -110,6 +129,11 @@ function setColor(tag, xpos, ypos, x, y, clr)
         else
             if x > xpos and x < xpos + lenght and y == ypos then
                 background = clr
+                if clr == 1 then 
+                    text = 32768 
+                else 
+                    text = 1
+                end
                 m.setBackgroundColor(clr)
                 initWithoutFlash()
             end
@@ -124,7 +148,27 @@ function closeSettings(tag, xpos, ypos, x, y)
         if xpos == nil or ypos == nil then
         else
             if x > xpos and x < lenght + xpos and y == ypos then
-                printText("                                                               ", xpos - 29, ypos, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 1, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 2, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 3, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 4, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 5, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 6, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 7, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 8, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 9, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 10, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 11, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 12, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 13, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 14, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 15, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 16, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 17, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 18, true, 32768, background                       , false)
+                --printText("                                                               ", xpos - 29, ypos + 19, true, 32768, background                       , false)
+                os.reboot()
             end
         end
     end
@@ -169,12 +213,12 @@ function list(tag, xpos, ypos, x, y)
         if x > xpos and x < xpos + lenght and y == ypos then
             rs_list = true
             if droppedDown == false then
-                printText("shutdown", 43, 2, true, 512, background                       , false)
-                printText("reboot", 45, 3, true, 512, background                       , false)
+                printText("shutdown", 43, 2, true, text, background, false)
+                printText("reboot", 45, 3, true, text, background, false)
                 droppedDown = true
             else
-                printText("        ", 43, 2, true, 512, background                       , false)
-                printText("      ", 45, 3, true, 512, background                       , false)
+                printText("        ", 43, 2, true, 512, background, false)
+                printText("      ", 45, 3, true, 512, background, false)
                 droppedDown = false
             end
         end
@@ -183,7 +227,7 @@ end
 
 function setUpFile()
     local f = fs.open("system/system.cfg", "w")
-    f.write("wasFirstBoot= true")
+    f.write("wasFirstBoot= fasle")
     f.close()
 end
 
@@ -192,7 +236,6 @@ function checkFile()
         local f = fs.open("system/system.cfg", "r")
         local ins = 0
         for i in string.gmatch(f.readAll(), "%S+") do
-            --print(i)
             if ins == 1 then
                 return i
             else
@@ -203,21 +246,22 @@ function checkFile()
     end
 end
 
+function login()
+
+end
+
 function initWithoutFlash()
     rs_list = false
     settings_open = false
 
     draw.printText("T OS v1.0 ", 1, 1, true, 512, 32768, true)
-    draw.printText(" settings                            ", 11, 1, true, 1, 32768, false)
+    draw.printText(" settings                           ", 11, 1, true, 1, 32768, false)
     draw.printText("list", 47, 1, true, 512, 32768, false)
 end
 
 function init()
-    --print("!!!!!!!!!! "..checkFile())
     local cf = checkFile()
-    --print(cf)
     if cf == "true" then
-        --print("Init without flash")
         initWithoutFlash()
         setUpFile()
     else
@@ -257,9 +301,6 @@ function init()
         local f = fs.open("system/users.tos", "w")
         f.write(username .. "|" .. password)
         f.close()
-        --draw.printText("T OS v1.0 ", 1, 1, true, 512, 32768, true)
-        --draw.printText(" settings                            ", 11, 1, true, 1, 32768, false)
-        --draw.printText("list", 47, 1, true, 512, 32768, false)
         setUpFile()
         os.reboot()
     end

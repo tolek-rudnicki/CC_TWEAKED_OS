@@ -71,6 +71,7 @@ function addUser(keyCode)
     end
     if order == 0 then
         username = username .. char
+        print(order)
         print("Username: " .. username)
     end 
     if order == 1 then

@@ -10,7 +10,7 @@ function drawGUI()
         if event == "monitor_touch" then
             -- button events
             draw.settings("settings", 11, 1, x, y)
-            draw.closeSettings(" x", 21, 5, x, y)
+            draw.closeSettings(" x", 39, 4, x, y)
             draw.list("list ", 46, 1, x, y)
             draw.shutdown("shutdown", 42, 2, x, y)
             draw.reboot("reboot", 44, 3, x, y)
@@ -52,5 +52,7 @@ function start(functionOnStart, startstatus)
     else
         draw.printText(checkStatusAndReturn(functionOnStart, exit_code), 1, 1, true, 1, 32768, true)
         print(checkStatusAndReturn(functionOnStart, exit_code))
+        --sleep(0.5)
+        os.reboot()
     end
 end
